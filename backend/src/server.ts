@@ -59,15 +59,6 @@ app.get('/api/health', (_req, res) => {
 
 app.use('/api/tasks', taskRoutes);
 
-// Task API (Lab 2.1)
-app.get('/api/tasks', (_req, res) => {
-  res.json({
-    message: 'API พร้อมใช้งาน (Supabase + Prisma + Quasar Frontend)',
-    timestamp: new Date().toISOString(),
-  });
-});
-
-
 
 // ✅ fallback 404 สำหรับทุก route ที่ไม่ match
 app.use((req, res) => {
