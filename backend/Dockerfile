@@ -36,6 +36,11 @@ COPY --from=builder --chown=node:node /app/prisma ./prisma
 COPY --from=builder --chown=node:node /app/node_modules/.prisma ./node_modules/.prisma
 COPY --from=builder --chown=node:node /app/node_modules/@prisma/client ./node_modules/@prisma/client
 
+# Run migrations and seed database before starting app
+RUN npm run prisma:generate
+RUN npx prisma migrate deploy || true
+RUN npx prisma db seed || true
+
 USER node
 EXPOSE 3000
 
