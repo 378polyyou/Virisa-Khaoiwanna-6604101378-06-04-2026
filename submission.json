@@ -1,0 +1,11 @@
+{
+  "student_id": "6604101378",
+  "name": "วีริศา เขียววรรณา",
+  "github_repo": "https://github.com/378polyyou/Virisa-Khaoiwanna-6604101378-06-04-2026.git",
+  "backend_base_url": "https://virisa-khaoiwanna-6604101378-06-04-2026.onrender.com/",
+  "frontend_url": "https://virisa-khaoiwanna-6604101378-06-04-20.netlify.app/#/",
+  "api": {
+    "health": "https://virisa-khaoiwanna-6604101378-06-04-2026.onrender.com/api/health",
+    "tasks": "https://virisa-khaoiwanna-6604101378-06-04-2026.onrender.com/api/tasks"
+  }
+}

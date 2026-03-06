@@ -8,6 +8,7 @@ import fs from 'fs';
 import path from 'path';
 
 import taskRoutes from './routes/task.routes';
+import { prisma } from './prisma';
 
 dotenv.config();
 
@@ -58,6 +59,24 @@ app.get('/api/health', (_req, res) => {
 });
 
 app.use('/api/tasks', taskRoutes);
+
+app.get('/api/tasks', async (req, res) => {
+  try {
+    const tasks = await prisma.task.findMany({
+      orderBy: { createdAt: 'desc' },
+    });
+
+    res.json({ data: tasks });
+  } catch (err: any) {
+    console.error('READ ALL error:', err);
+    res.status(500).json({
+      message: 'ไม่สามารถดึงรายการได้',
+      error: err.message,
+      code: err.code
+    });
+  }
+});
+
 
 
 // ✅ fallback 404 สำหรับทุก route ที่ไม่ match
